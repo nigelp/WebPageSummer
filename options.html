@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Web Page Summarizer Options</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #4a90e2;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3a7bc8;
+    }
+    #status {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Web Page Summarizer Options</h1>
+  <label for="anthropicApiKey">Anthropic API Key:</label>
+  <input type="text" id="anthropicApiKey" placeholder="Enter your Anthropic API key">
+  <label for="openaiApiKey">OpenAI API Key:</label>
+  <input type="text" id="openaiApiKey" placeholder="Enter your OpenAI API key">
+  <button id="saveBtn">Save</button>
+  <div id="status"></div>
+  <script src="options.js"></script>
+</body>
+</html>

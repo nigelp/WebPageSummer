@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Web Page Summarizer</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 10px;
+      background-color: #4a90e2;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3a7bc8;
+    }
+    #summary {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 4px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    #loading {
+      text-align: center;
+      color: #666;
+    }
+    #copyBtn {
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="icon">S</div>
+  <button id="summarizeBtn">Summarize Page</button>
+  <div id="loading" style="display: none;">Summarizing...</div>
+  <div id="summary"></div>
+  <button id="copyBtn">Copy Summary</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Create Icons</title>
+    <style>
+        .icon {
+            background-color: #4a90e2;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+        }
+        #icon16 {
+            width: 16px;
+            height: 16px;
+            font-size: 12px;
+        }
+        #icon48 {
+            width: 48px;
+            height: 48px;
+            font-size: 36px;
+        }
+        #icon128 {
+            width: 128px;
+            height: 128px;
+            font-size: 96px;
+        }
+    </style>
+</head>
+<body>
+    <div id="icon16" class="icon">S</div>
+    <div id="icon48" class="icon">S</div>
+    <div id="icon128" class="icon">S</div>
+    <div id="output"></div>
+    <script>
+        function generateDataURL(element) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const width = element.offsetWidth;
+            const height = element.offsetHeight;
+
+            canvas.width = width;
+            canvas.height = height;
+
+            ctx.fillStyle = getComputedStyle(element).backgroundColor;
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.font = getComputedStyle(element).font;
+            ctx.fillStyle = getComputedStyle(element).color;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('S', width / 2, height / 2);
+
+            return canvas.toDataURL('image/png');
+        }
+
+        function displayAndDownloadDataURLs() {
+            const sizes = [16, 48, 128];
+            const output = document.getElementById('output');
+            output.innerHTML = '';
+
+            sizes.forEach(size => {
+                const icon = document.getElementById(`icon${size}`);
+                const dataURL = generateDataURL(icon);
+                output.innerHTML += `<p>Icon ${size}x${size}: <a href="${dataURL}" download="icon${size}.png">Download</a></p>`;
+            });
+        }
+
+        window.onload = displayAndDownloadDataURLs;
+    </script>
+</body>
+</html>
